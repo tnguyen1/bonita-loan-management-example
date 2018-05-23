@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connectorconfiguration:ConnectorConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connectorconfiguration="http://wwww.bonitasoft.org/model/connector/configuration" xmlns:expression="http://www.bonitasoft.org/ns/studio/expression" xmlns:process="http://www.bonitasoft.org/ns/studio/process" definitionId="scripting-groovy" version="1.0.2" name="executeTask" modelVersion="7.6.0-002">
+  <parameters key="script">
+    <expression xsi:type="expression:Expression" name="executeTask()" content="&#xA;import org.bonitasoft.engine.bpm.flownode.ActivityInstance&#xA;import org.bonitasoft.engine.search.SearchOptions&#xA;import org.bonitasoft.engine.search.SearchOptionsBuilder&#xA;&#xA;&#xA;List&lt;ActivityInstance> tasks = apiAccessor.getProcessAPI().getActivities(processInstanceToAutomate, 0, 1)&#xA;&#xA;// Walter Bates perform the task&#xA;def taskId = tasks.get(0).id&#xA;def walterBatesId = 4L&#xA;apiAccessor.getProcessAPI().assignUserTaskIfNotAssigned(taskId, walterBatesId);&#xA;apiAccessor.getProcessAPI().executeUserTask(taskId, new HashMap())" interpreter="GROOVY" type="TYPE_READ_ONLY_SCRIPT" returnType="java.lang.Object" returnTypeFixed="true">
+      <referencedElements xsi:type="expression:Expression" name="apiAccessor" content="apiAccessor" type="TYPE_ENGINE_CONSTANT" returnType="com.bonitasoft.engine.api.APIAccessor"/>
+      <referencedElements xsi:type="process:Data" name="processInstanceToAutomate">
+        <dataType xsi:type="process:LongType" href="platform:/resource/default/diagrams/LoanManagement-1.0.proc#_w6AULzNIEeiyXpBWBWhfJQ"/>
+      </referencedElements>
+    </expression>
+  </parameters>
+</connectorconfiguration:ConnectorConfiguration>

@@ -1,0 +1,104 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.6.46",
+  "id" : "e6105c3a-6f64-4fb2-a3d0-b9e3537e7c0f",
+  "name" : "loanRequestsMonitoring",
+  "lastUpdate" : 1526994111434,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Monitoring"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "95ad594e-1267-4777-ad26-3747ab84ad63",
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "type" : {
+        "type" : "constant",
+        "value" : "Pie"
+      },
+      "data" : {
+        "type" : "constant",
+        "value" : [ "80", "20" ]
+      },
+      "labels" : {
+        "type" : "constant",
+        "value" : [ "On Time", "Late" ]
+      },
+      "setLabels" : {
+        "type" : "constant",
+        "value" : [ "Default set label" ]
+      },
+      "legendHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "colors" : {
+        "type" : "constant",
+        "value" : [ "#CC0000", "#00CC00" ]
+      },
+      "options" : {
+        "type" : "constant"
+      }
+    },
+    "reference" : "cfeb50bd-4bfd-45c2-a0e0-4899778fce35",
+    "id" : "pbChart"
+  } ] ],
+  "assets" : [ {
+    "id" : "eff4e71f-2b22-4e4a-bf95-0474f6ad5dae",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "4f4e9799-3e41-44c0-8b05-0736847ac02e",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : { },
+  "uuid" : "e6105c3a-6f64-4fb2-a3d0-b9e3537e7c0f",
+  "type" : "page"
+}

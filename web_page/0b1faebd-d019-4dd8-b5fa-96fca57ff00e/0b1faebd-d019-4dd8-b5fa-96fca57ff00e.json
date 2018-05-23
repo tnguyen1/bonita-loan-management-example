@@ -1,0 +1,238 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.6.46",
+  "id" : "0b1faebd-d019-4dd8-b5fa-96fca57ff00e",
+  "name" : "loanRequestListPredictive",
+  "lastUpdate" : 1526994110803,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Loan Requests"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "748c580c-39e2-4225-ac7c-6ea5d9ff8e45",
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "State"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "inline" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "availableValues" : {
+        "type" : "constant",
+        "value" : [ "Pending", "Closed" ]
+      },
+      "displayedKey" : {
+        "type" : "constant"
+      },
+      "returnedKey" : {
+        "type" : "constant"
+      },
+      "selectedValue" : {
+        "type" : "variable",
+        "value" : "loanFilter.status"
+      }
+    },
+    "reference" : "7fd6b085-5a6e-4fe8-ba71-d5d2c189baae",
+    "id" : "pbRadioButtons"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "0a74022a-fab1-427f-86b4-7b6883337cb3",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "headers" : {
+          "type" : "expression",
+          "value" : "loanFilter.status===\"Closed\"?[\"Id\", \"Type\", \"Requested on\", \"Name\", \"Amount\", \"Duration (months)\", \"Rate\", \"Status\", \"Closed on\"]:[\"Id\", \"Type\", \"Requested on\", \"Priority (based on prediction)\", \"Name\", \"Amount\", \"Duration (months)\", \"Rate\", \"Status\"]"
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "Variable"
+        },
+        "apiUrl" : {
+          "type" : "constant",
+          "value" : "../API/bdm/businessData/com.company.model.Loan?q=find"
+        },
+        "params" : {
+          "type" : "constant"
+        },
+        "content" : {
+          "type" : "expression",
+          "value" : "loanRequestsWithPredictions"
+        },
+        "columnsKey" : {
+          "type" : "expression",
+          "value" : "loanFilter.status===\"Closed\"? [\"persistenceId\", \"type\", \"requestDate\", \"customer\", \"amount\", \"durationInMonth\", \"rate\", \"status\", \"closeDate\"]:[\"persistenceId\", \"type\", \"requestDate\", \"prediction\", \"customer\", \"amount\", \"durationInMonth\", \"rate\", \"status\"]"
+        },
+        "sortColumns" : {
+          "type" : "constant"
+        },
+        "selectedRow" : {
+          "type" : "variable",
+          "value" : "selectedRequest"
+        },
+        "pageSize" : {
+          "type" : "constant",
+          "value" : 5000
+        },
+        "filter" : {
+          "type" : "constant",
+          "value" : ""
+        }
+      },
+      "reference" : "09b29fc5-6020-4ed0-b912-3be08fd07b69",
+      "id" : "pbDataTable"
+    } ] ]
+  } ] ],
+  "assets" : [ {
+    "id" : "1bb3fedf-6609-4968-b6c1-543a91a93973",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "7aba833a-f7c9-4a6f-a23d-05953ffce6e9",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "loanRequests" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.company.model.Loan?q={{queryName}}&p=0&c=100",
+      "exposed" : false
+    },
+    "loanFilter" : {
+      "type" : "json",
+      "value" : "{\"status\": \"Pending\"}",
+      "exposed" : false
+    },
+    "queryName" : {
+      "type" : "expression",
+      "value" : "return $data.loanFilter.status==\"Closed\"?\"findClosedRequests\":\"findOpenRequests\";",
+      "exposed" : false
+    },
+    "selectedRequest" : {
+      "type" : "expression",
+      "value" : "return null;",
+      "exposed" : false
+    },
+    "redirectToSelectedTask" : {
+      "type" : "expression",
+      "value" : "if($data.selectedRequest && $data.selectedRequest.taskURL) {\n    window.location.href = $data.selectedRequest.taskURL;\n} \nreturn null",
+      "exposed" : false
+    },
+    "predictionsPerCase" : {
+      "type" : "url",
+      "value" : "../API/extension/casePrediction",
+      "exposed" : false
+    },
+    "loanRequestsWithPredictions" : {
+      "type" : "expression",
+      "value" : "if($data.loanRequests) {\n    let result = $data.loanRequests.map(function(elem){\n        elem.prediction = \"Normal\";\n        let casePrediction = $data.predictionsPerCase[elem.caseId];\n        if( casePrediction && casePrediction < 0.5) {\n            elem.prediction = \"Urgent!\";\n        }\n        console.log(\"Case \" + elem.caseId + \" is considered \" + elem.prediction + \" because of prediction value: \" + $data.predictionsPerCase[elem.caseId]);\n        return elem;\n    })\n    result.sort((a,b) => {\n        if(a.prediction < b.prediction) {\n            return 1;\n        }\n        if(a.prediction == b.prediction) {\n            return 0;\n        }\n        return -1;\n        \n    });\n    return result;\n}\nreturn [];",
+      "exposed" : false
+    }
+  },
+  "uuid" : "0b1faebd-d019-4dd8-b5fa-96fca57ff00e",
+  "type" : "page"
+}

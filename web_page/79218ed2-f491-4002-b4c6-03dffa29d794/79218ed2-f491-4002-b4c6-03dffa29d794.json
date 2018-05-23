@@ -1,0 +1,228 @@
+{
+  "designerVersion" : "1.7.25",
+  "previousDesignerVersion" : "1.6.46",
+  "id" : "79218ed2-f491-4002-b4c6-03dffa29d794",
+  "name" : "loanRequestList",
+  "lastUpdate" : 1526994111097,
+  "rows" : [ [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "text" : {
+        "type" : "interpolation",
+        "value" : "Loan Requests"
+      },
+      "level" : {
+        "type" : "constant",
+        "value" : "Level 2"
+      },
+      "alignment" : {
+        "type" : "constant",
+        "value" : "left"
+      }
+    },
+    "reference" : "67f3c258-1aee-42c1-a9c9-ccf31bbbcd38",
+    "id" : "pbTitle"
+  } ], [ {
+    "type" : "component",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "disabled" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "required" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "labelHidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "label" : {
+        "type" : "interpolation",
+        "value" : "State"
+      },
+      "labelPosition" : {
+        "type" : "constant",
+        "value" : "left"
+      },
+      "labelWidth" : {
+        "type" : "constant",
+        "value" : 1
+      },
+      "inline" : {
+        "type" : "constant",
+        "value" : true
+      },
+      "availableValues" : {
+        "type" : "constant",
+        "value" : [ "Pending", "Closed" ]
+      },
+      "displayedKey" : {
+        "type" : "constant"
+      },
+      "returnedKey" : {
+        "type" : "constant"
+      },
+      "selectedValue" : {
+        "type" : "variable",
+        "value" : "loanFilter.status"
+      }
+    },
+    "reference" : "24166bba-d5d9-416c-bc62-e2e9746d049d",
+    "id" : "pbRadioButtons"
+  } ], [ {
+    "type" : "container",
+    "dimension" : {
+      "xs" : 12,
+      "sm" : 12,
+      "md" : 12,
+      "lg" : 12
+    },
+    "propertyValues" : {
+      "cssClasses" : {
+        "type" : "constant",
+        "value" : ""
+      },
+      "hidden" : {
+        "type" : "constant",
+        "value" : false
+      },
+      "repeatedCollection" : {
+        "type" : "variable",
+        "value" : ""
+      }
+    },
+    "reference" : "697961e2-f7d6-4ab8-a1ec-1724c5fb24d6",
+    "id" : "pbContainer",
+    "rows" : [ [ {
+      "type" : "component",
+      "dimension" : {
+        "xs" : 12,
+        "sm" : 12,
+        "md" : 12,
+        "lg" : 12
+      },
+      "propertyValues" : {
+        "cssClasses" : {
+          "type" : "constant",
+          "value" : ""
+        },
+        "hidden" : {
+          "type" : "constant",
+          "value" : false
+        },
+        "headers" : {
+          "type" : "expression",
+          "value" : "loanFilter.status===\"Closed\"?[\"Id\", \"Type\", \"Requested on\", \"Name\", \"Amount\", \"Duration (months)\", \"Rate\", \"Status\", \"Closed on\"]:[\"Id\", \"Type\", \"Requested on\", \"Name\", \"Amount\", \"Duration (months)\", \"Rate\", \"Status\"]"
+        },
+        "type" : {
+          "type" : "constant",
+          "value" : "Variable"
+        },
+        "apiUrl" : {
+          "type" : "constant",
+          "value" : "../API/bdm/businessData/com.company.model.Loan?q=find"
+        },
+        "params" : {
+          "type" : "constant"
+        },
+        "content" : {
+          "type" : "expression",
+          "value" : "loanRequests"
+        },
+        "columnsKey" : {
+          "type" : "constant",
+          "value" : [ "persistenceId", "type", "requestDate", "customer", "amount", "durationInMonth", "rate", "status", "closeDate" ]
+        },
+        "sortColumns" : {
+          "type" : "constant"
+        },
+        "selectedRow" : {
+          "type" : "variable",
+          "value" : "selectedRequest"
+        },
+        "pageSize" : {
+          "type" : "constant",
+          "value" : 5000
+        },
+        "filter" : {
+          "type" : "constant",
+          "value" : ""
+        }
+      },
+      "reference" : "1d9a6a34-2938-496f-9bd5-3c909459f3bb",
+      "id" : "pbDataTable"
+    } ] ]
+  } ] ],
+  "assets" : [ {
+    "id" : "1bb3fedf-6609-4968-b6c1-543a91a93973",
+    "name" : "style.css",
+    "type" : "css",
+    "order" : 0,
+    "external" : false
+  }, {
+    "id" : "7aba833a-f7c9-4a6f-a23d-05953ffce6e9",
+    "name" : "localization.json",
+    "type" : "json",
+    "order" : 0,
+    "external" : false
+  } ],
+  "inactiveAssets" : [ ],
+  "data" : {
+    "loanRequests" : {
+      "type" : "url",
+      "value" : "../API/bdm/businessData/com.company.model.Loan?q={{queryName}}&p=0&c=10000",
+      "exposed" : false
+    },
+    "loanFilter" : {
+      "type" : "json",
+      "value" : "{\"status\": \"Pending\"}",
+      "exposed" : false
+    },
+    "queryName" : {
+      "type" : "expression",
+      "value" : "return $data.loanFilter.status==\"Closed\"?\"findClosedRequests\":\"findOpenRequests\";",
+      "exposed" : false
+    },
+    "selectedRequest" : {
+      "type" : "expression",
+      "value" : "return null;",
+      "exposed" : false
+    },
+    "redirectToSelectedTask" : {
+      "type" : "expression",
+      "value" : "if($data.selectedRequest && $data.selectedRequest.taskURL) {\n    window.location.href = $data.selectedRequest.taskURL;\n} \nreturn null",
+      "exposed" : false
+    }
+  },
+  "uuid" : "79218ed2-f491-4002-b4c6-03dffa29d794",
+  "type" : "page"
+}

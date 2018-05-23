@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<businessObjectModel modelVersion="1.0" productVersion="7.6.3">
+    <businessObjects>
+        <businessObject qualifiedName="com.company.model.Loan">
+            <fields>
+                <field type="STRING" length="255" name="customer" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="amount" nullable="false" collection="false"/>
+                <field type="STRING" length="255" name="type" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="rate" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="allDocumentProvided" nullable="false" collection="false"/>
+                <field type="INTEGER" length="255" name="durationInMonth" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="signature" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="status" nullable="true" collection="false"/>
+                <field type="BOOLEAN" length="255" name="loanScoringFavorable" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="requestDate" nullable="true" collection="false"/>
+                <field type="LOCALDATE" length="255" name="closeDate" nullable="true" collection="false"/>
+                <field type="STRING" length="512" name="taskURL" nullable="true" collection="false"/>
+                <field type="STRING" length="255" name="caseId" nullable="true" collection="false"/>
+            </fields>
+            <uniqueConstraints/>
+            <queries>
+                <query name="findOpenRequests" content="SELECT l &#xA;FROM Loan l &#xA;WHERE l.closeDate = NULL&#xA;ORDER BY l.requestDate ASC" returnType="java.util.List">
+                    <queryParameters/>
+                </query>
+                <query name="findClosedRequests" content="SELECT l &#xA;FROM Loan l &#xA;WHERE l.closeDate &lt;&gt; NULL&#xA;ORDER BY l.requestDate ASC" returnType="java.util.List">
+                    <queryParameters/>
+                </query>
+            </queries>
+            <indexes/>
+        </businessObject>
+    </businessObjects>
+</businessObjectModel>
