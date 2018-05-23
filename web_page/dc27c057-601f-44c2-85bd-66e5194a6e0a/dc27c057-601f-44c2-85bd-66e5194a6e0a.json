@@ -3,7 +3,7 @@
   "previousDesignerVersion" : "1.6.46",
   "id" : "dc27c057-601f-44c2-85bd-66e5194a6e0a",
   "name" : "RequestLoan",
-  "lastUpdate" : 1526994111336,
+  "lastUpdate" : 1527075119321,
   "rows" : [ [ {
     "type" : "formContainer",
     "dimension" : {
@@ -85,7 +85,8 @@
         },
         "propertyValues" : {
           "repeatedCollection" : {
-            "type" : "variable"
+            "type" : "variable",
+            "value" : ""
           },
           "labelHidden" : {
             "type" : "constant",
@@ -120,6 +121,10 @@
           "dimension" : {
             "type" : "constant",
             "value" : 12
+          },
+          "hidden" : {
+            "type" : "constant",
+            "value" : false
           }
         },
         "reference" : "a46dfc12-65eb-4e7c-a008-df8fc4a5c395",
@@ -269,9 +274,9 @@
         } ], [ {
           "type" : "component",
           "dimension" : {
-            "md" : 12,
-            "sm" : 12,
             "xs" : 12,
+            "sm" : 12,
+            "md" : 12,
             "lg" : 12
           },
           "propertyValues" : {
@@ -279,25 +284,13 @@
               "type" : "constant",
               "value" : ""
             },
-            "widgetId" : {
+            "hidden" : {
               "type" : "constant",
-              "value" : "pbInput"
+              "value" : false
             },
-            "isDisplayed" : {
+            "disabled" : {
               "type" : "constant",
-              "value" : true
-            },
-            "labelWidth" : {
-              "type" : "constant",
-              "value" : 1
-            },
-            "label" : {
-              "type" : "interpolation",
-              "value" : "Type"
-            },
-            "type" : {
-              "type" : "constant",
-              "value" : "text"
+              "value" : false
             },
             "required" : {
               "type" : "constant",
@@ -307,36 +300,39 @@
               "type" : "constant",
               "value" : false
             },
-            "readonly" : {
-              "type" : "constant",
-              "value" : false
+            "label" : {
+              "type" : "interpolation",
+              "value" : "Type"
             },
             "labelPosition" : {
               "type" : "constant",
               "value" : "top"
             },
+            "labelWidth" : {
+              "type" : "constant",
+              "value" : 4
+            },
             "placeholder" : {
+              "type" : "interpolation",
+              "value" : "Select an option"
+            },
+            "availableValues" : {
+              "type" : "constant",
+              "value" : [ "type1", "type2", "type3" ]
+            },
+            "displayedKey" : {
               "type" : "constant"
             },
-            "alignment" : {
-              "type" : "constant",
-              "value" : "left"
-            },
-            "class" : {
-              "type" : "constant",
-              "value" : "org.bonitasoft.web.designer.experimental.parametrizedWidget.InputWidget"
-            },
-            "dimension" : {
-              "type" : "constant",
-              "value" : 12
+            "returnedKey" : {
+              "type" : "constant"
             },
             "value" : {
               "type" : "variable",
               "value" : "formInput.loanRequestedInput.type"
             }
           },
-          "reference" : "442d9cf4-f9a6-4b0e-936a-012a1570360b",
-          "id" : "pbInput"
+          "reference" : "35ef6365-89c1-482c-9d1c-ddc7a966aa9c",
+          "id" : "pbSelect"
         } ] ]
       } ], [ {
         "type" : "component",
